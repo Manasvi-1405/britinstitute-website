@@ -1,6 +1,7 @@
 "use client";
 
 import Image from "next/image";
+
 import Link from "next/link";
 import {
   ArrowRight,
@@ -111,8 +112,8 @@ function SectionLabel({ children, dark = false }: { children: React.ReactNode; d
 export default function BritInspiredHome() {
   return (
     <main className="bg-[#f7f3ea] text-[#241a1f]">
-      <HeroSection />
-      <CareerJourneyStrip />
+       <HeroSection /> 
+       <CareerJourneyStrip />
       <LogoStrip />
       <IntroCardsSection />
       <ProductsSection />
@@ -132,80 +133,210 @@ const openSans = Open_Sans({
   weight: ["300"],
 });
 
+
+
+
+
+
+// function HeroSection() {
+//   return (
+//     <section
+//       className={`${openSans.className} relative min-h-[640px] overflow-hidden bg-[#0B1F3A] px-5 pb-10 pt-20 text-white md:min-h-[700px] md:px-8 md:pt-24 lg:min-h-[735px] lg:px-12 lg:pb-12 lg:pt-24`}
+//     >
+//       <DarkPattern />
+
+//       <div className="absolute inset-0 bg-[linear-gradient(110deg,rgba(11,31,58,0.98)_0%,rgba(16,45,78,0.94)_45%,rgba(30,74,110,0.72)_100%)]" />
+
+//       <div className="relative z-10 mx-auto grid max-w-7xl gap-8 pt-12 lg:grid-cols-[0.9fr_1.1fr] lg:items-center">
+
+// {/* left content */}
+//         <div>
+//           <SectionLabel dark>
+//             UK Data Analyst Career Programme
+//           </SectionLabel>
+
+//           <h1 className="mt-3 max-w-2xl text-4xl font-black leading-[0.98] tracking-tight md:text-[52px] lg:text-[60px]">
+//             Become a{" "}
+//             <span className="text-[#FFD166]">
+//               Job-Ready Data Analyst
+//             </span>{" "}
+//             in the UK
+//           </h1>
+
+//           <p className="mt-4 max-w-2xl text-base leading-7 text-white/80 md:text-lg">
+//             Live, mentor-led Data Analytics + AI training built for UK careers.
+//             Master Excel, SQL, Power BI, Python and AI through real projects,
+//             then get structured CV, interview, job-search and placement support
+//             to help you move into a data role.
+//           </p>
+
+// {/* buttons */}
+//           <div className="mt-5 flex flex-col gap-3 sm:flex-row">
+
+//             <Link
+//               href="/contact"
+//               className="btn-gold min-h-12 px-6 py-3 text-sm sm:min-w-[230px]"
+//             >
+//               Book Free Career Consultation
+//             </Link>
+
+//             <Link
+//               href="/courses/data-analytics"
+//               className="btn-outline btn-outline-white min-h-12 px-6 py-3 text-sm sm:min-w-[230px]"
+//             >
+//               Explore Data Analyst Programme
+//             </Link>
+
+//           </div>
+// {/* features */}
+//           <div className="mt-6 grid max-w-2xl grid-cols-2 gap-3 sm:grid-cols-4">
+
+//             {[
+//               "Real Projects",
+//               "UK Job Preparation",
+//               "1-to-1 Mentoring",
+//               "Placement Support",
+//             ].map((label) => (
+//               <div
+//                 key={label}
+//                 className="border-t border-white/20 pt-4"
+//               >
+//                 <div className="text-sm font-black leading-5 text-white">
+//                   {label}
+//                 </div>
+//               </div>
+//             ))}
+
+//           </div>
+//         </div>
+// {/* right img section */}
+//         <div className="relative min-h-[420px] lg:min-h-[520px]">
+// {/* full background */}
+//           {/* Image container */}
+//           <div className="absolute inset-x-0 bottom-0 mx-auto h-[330px] w-full max-w-[570px] overflow-hidden rounded-t-[190px] border border-white/15 bg-[#163B63] shadow-[0_40px_90px_rgba(0,0,0,0.35)] md:h-[390px] lg:h-[410px]">
+
+//             <Image
+//               src="/hero1.jpg"
+//               alt="Learner preparing for a UK data analyst career with Brit Institute"
+//               fill
+//               priority
+//               className="object-cover object-center"
+//               sizes="(max-width: 768px) 100vw, 570px"
+//             />
+
+//             {/* Natural image gradient */}
+//             <div className="absolute inset-0 bg-[linear-gradient(180deg,transparent_40%,rgba(11,31,58,0.78)_100%)]" />
+
+//           </div>
+
+//           {/* Text card */}
+//           <div className="absolute bottom-4 left-0 max-w-[240px] rounded-xl border border-[#E5E7EB] bg-[#FFFDF8] px-4 py-3 text-[#0B1F3A] shadow-2xl md:left-8">
+
+//             <div className="flex items-center gap-2 text-xs font-black uppercase tracking-[0.15em] text-[#1D63A5]">
+//               <Sparkles size={14}  />
+//               Live online programme
+//             </div>
+
+//             <div className="mt-2 text-xl font-black">
+//               Beginner-friendly
+//             </div>
+
+//             <p className="mt-1 text-sm font-semibold text-[#667085]">
+//               A structured route from skills to job search.
+//             </p>
+
+//           </div>
+
+//         </div>
+
+//       </div>
+//     </section>
+//   );
+// }
 function HeroSection() {
   return (
-    <section className="{`${openSans.className} relative min-h-[640px] overflow-hidden bg-[#24101f] px-5 pb-10 pt-20 text-white md:min-h-[700px] md:px-8 md:pt-24 lg:min-h-[735px] lg:px-12 lg:pb-12 lg:pt-24">
-      <DarkPattern />
-      <div className="absolute inset-0 bg-[linear-gradient(110deg,rgba(36,16,31,0.98)_0%,rgba(36,16,31,0.92)_45%,rgba(36,16,31,0.58)_100%)]" />
+    <section
+      className={`${openSans.className} relative min-h-[640px] overflow-hidden px-5 py-20 text-white md:min-h-[700px] md:px-8 lg:min-h-[735px] lg:px-12`}
+    >
+      <Image
+        src="/Dashboard hero.png"
+        alt="Learner working on a laptop"
+        fill
+        priority
+        className="object-cover object-center"
+      />
 
-      <div className="relative z-10 mx-auto grid max-w-7xl pt-12 gap-8 lg:grid-cols-[0.9fr_1.1fr] lg:items-center">
-        <div>
-          <SectionLabel dark>UK Data Analyst Career Programme</SectionLabel>
-          <h1 className="mt-3 max-w-2xl text-4xl font-black leading-[0.98] tracking-tight md:text-[52px] lg:text-[60px]">
-            Become a Job-Ready Data Analyst in the UK
+      <div className="absolute inset-0 bg-black/55" />
+
+      <div className="relative z-10 mx-auto flex min-h-[600px] max-w-7xl items-center">
+        <div className="max-w-3xl">
+
+          <SectionLabel dark>
+            UK Data Analyst Career Programme
+          </SectionLabel>
+
+          <h1 className="mt-5 max-w-3xl text-5xl font-black leading-[1.02] tracking-tight md:text-6xl lg:text-7xl">
+            Become a{" "}
+            <span className="text-[#FFD166]">
+              Job-Ready Data Analyst
+            </span>{" "}
+            in the UK
           </h1>
-          <p className="mt-4 max-w-2xl text-base leading-7 text-white/75 md:text-lg">
-            Live, mentor-led Data Analytics + AI training built for UK careers. Master Excel, SQL, Power BI, Python and AI through real projects, then get structured CV, interview, job-search and placement support to help you move into a data role.
-          </p>
-          <div className="mt-5 flex flex-col gap-3 sm:flex-row">
-            <Link href="/contact" className="btn-gold min-h-12 px-6 py-3 text-sm sm:min-w-[230px]">
-              Book Free Career Consultation
-            </Link>
-            <Link href="/courses/data-analytics" className="btn-outline btn-outline-white min-h-12 px-6 py-3 text-sm sm:min-w-[230px]">
-              Explore Data Analyst Programme
-            </Link>
-          </div>
 
-          <div className="mt-6 grid max-w-2xl grid-cols-2 gap-3 sm:grid-cols-4">
+          <p className="mt-6 max-w-2xl text-lg leading-8 text-white/90 md:text-xl">
+            Live, mentor-led Data Analytics + AI training built for UK careers.
+            Master Excel, SQL, Power BI, Python and AI through real projects,
+            then get structured CV, interview, job-search and placement support
+            to help you move into a data role.
+          </p>
+
+          <Link
+            href="/contact"
+            className="btn-gold mt-8 inline-flex min-h-12 px-8 py-3 text-sm"
+          >
+            Book Free Career Consultation
+          </Link>
+
+          <div className="mt-10 grid max-w-2xl grid-cols-2 gap-x-8 gap-y-5 sm:grid-cols-4">
             {[
               "Real Projects",
               "UK Job Preparation",
               "1-to-1 Mentoring",
               "Placement Support",
             ].map((label) => (
-              <div key={label} className="border-t border-white/25 pt-4">
-                <div className="text-sm font-black leading-5 text-white">{label}</div>
+              <div
+                key={label}
+                className="border-t border-white/30 pt-3 text-sm font-black"
+              >
+                {label}
               </div>
             ))}
           </div>
-        </div>
 
-        <div className="relative min-h-[330px] lg:min-h-[420px]">
-          <div className="absolute inset-x-0 bottom-0 mx-auto h-[330px] max-w-[570px] overflow-hidden rounded-b-none rounded-t-[190px] border border-white/10 bg-[#352338] shadow-[0_40px_90px_rgba(0,0,0,0.42)] md:h-[390px] lg:h-[410px]">
-            <Image
-              src="/hero-person.png"
-              alt="Learner preparing for a UK data analyst career with Brit Institute"
-              fill
-              priority
-              className="object-cover object-center"
-              sizes="(max-width: 1024px) 92vw, 620px"
-            />
-            <div className="absolute inset-0 bg-[linear-gradient(180deg,transparent_45%,rgba(36,16,31,0.84)_100%)]" />
-          </div>
-          <div className="absolute bottom-4 left-0 max-w-[240px] rounded-md border border-white/15 bg-white px-4 py-3 text-[#24101f] shadow-2xl md:left-8">
-            <div className="flex items-center gap-2 text-xs font-black uppercase tracking-[0.2em] text-[#c45118]">
-              <Sparkles size={14} />
-              Live online programme
-            </div>
-            <div className="mt-2 text-xl font-black">Beginner-friendly</div>
-            <p className="mt-1 text-sm font-semibold text-[#6f665c]">A structured route from skills to job search.</p>
-          </div>
         </div>
       </div>
     </section>
   );
 }
-
 function CareerJourneyStrip() {
   return (
-    <section aria-label="Brit Institute career journey" className="bg-[#d95700] px-5 py-7 text-white md:px-8">
+    <section
+      aria-label="Brit Institute career journey"
+      className="bg-[#24101f] px-5 py-7 text-white md:px-8"
+    >
       <div className="mx-auto grid max-w-6xl gap-3 text-center sm:grid-cols-5 sm:text-left">
         {["Learn skills", "Build real projects", "Become job ready", "Prepare for interviews", "Get placement support"].map((step, index) => (
-          <div key={step} className="flex items-center justify-center gap-3 rounded-md border border-white/20 bg-white/8 px-4 py-3 sm:justify-start">
+          <div
+            key={step}
+            className="flex items-center justify-center gap-3 rounded-md border border-white/10 bg-[#352338] px-4 py-3 shadow-sm transition-all duration-300 hover:-translate-y-1 hover:border-[#c45118]/50 hover:bg-[#402940] hover:shadow-lg sm:justify-start"
+          >
             <span className="flex h-7 w-7 shrink-0 items-center justify-center rounded-full bg-[#f5c242] text-xs font-black text-[#24101f]">
               {index + 1}
             </span>
-            <span className="text-sm font-black leading-5">{step}</span>
+
+            <span className="text-sm font-black leading-5 text-white">
+              {step}
+            </span>
           </div>
         ))}
       </div>
@@ -313,6 +444,7 @@ function ProductsSection() {
     </section>
   );
 }
+
 
 function CareerChangeBand() {
   return (

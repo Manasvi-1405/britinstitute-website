@@ -12,13 +12,42 @@ const aboutProofBadges = [
 export default function AboutPage() {
   return (
     <ThemeShell>
-      <ThemeHero
+      {/* <ThemeHero
         eyebrow="About Brit Institute"
         title={<>A practical approach to careers in data, AI, and emerging technology.</>}
         text="Brit Institute is part of LearnifyOps, a company building technology, automation, and learning ecosystems. We focus on building real-world skills that help learners transition into high-demand roles across the UK and beyond."
-      />
+      /> */}
 
-      <section className="bg-[#f7f3ea] px-5 py-20 md:px-8 lg:py-24">
+      <ThemeHero
+  eyebrow="About Brit Institute"
+  title={
+    <>
+      Build the skills.
+      <br />
+      <span className="text-[#1D63A5]">Build your future.</span>
+    </>
+  }
+  text={
+    <>
+      <span className="font-semibold text-[#0B1F3A]">
+        Brit Institute
+      </span>{" "}
+      is a career-focused learning institute helping professionals and
+      aspiring learners build practical skills in{" "}
+      <span className="font-semibold text-[#1D63A5]">
+        Data, AI, and emerging technologies.
+      </span>{" "}
+      Through hands-on learning, real-world projects, expert mentorship,
+      and career-focused support, we help learners become{" "}
+      <span className="font-semibold text-[#0B1F3A]">
+        confident and job-ready
+      </span>{" "}
+      for opportunities across the UK and beyond.
+    </>
+  }
+/>
+
+      <section className="bg-#0B1F3A px-5 py-20 md:px-8 lg:py-24">
         <div className="mx-auto grid max-w-6xl gap-8 lg:grid-cols-2">
           {[
             {

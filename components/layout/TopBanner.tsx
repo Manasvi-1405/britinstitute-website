@@ -1,9 +1,16 @@
 "use client";
 
 // --- Configuration & Helpers ---
-const BRAND_BLUE = "#24101F";
-const BRAND_GOLD = "#D4AF37";
-const UPCOMING_BATCH_DATE = " 24 october 2026";
+// const BRAND_BLUE = "#24101F";
+// const BRAND_GOLD = "#D4AF37";
+// const UPCOMING_BATCH_DATE = " 24 october 2026";
+const BRAND_BLUE = "#0B1F3A";
+const BRAND_BLUE_HOVER = "#163B63";
+
+const BRAND_GOLD = "#F4B942";
+const BRAND_GOLD_HOVER = "#DFA52F";
+
+const UPCOMING_BATCH_DATE = "24 October 2026";
 
 // --- Private Helper Icons for Top Banner ---
 // Paper plane / Send style icon from image

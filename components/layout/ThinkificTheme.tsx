@@ -54,7 +54,8 @@ export function ThemeHero({
   return (
     <section className="relative overflow-hidden bg-[#24101f] px-5 pb-20 pt-36 text-white md:px-8 lg:pt-40">
       <ThemePattern />
-      <div className="absolute inset-0 bg-[linear-gradient(110deg,rgba(36,16,31,0.98),rgba(36,16,31,0.9)_58%,rgba(217,87,0,0.16))]" />
+      {/* <div className="absolute inset-0 bg-[linear-gradient(110deg,rgba(36,16,31,0.98),rgba(36,16,31,0.9)_58%,rgba(217,87,0,0.16))]" /> */}
+      <div className="absolute inset-0 bg-[linear-gradient(110deg,rgba(11,31,58,0.98)_0%,rgba(11,31,58,0.90)_55%,rgba(29,99,165,0.30)_100%)]" />
       <div className="relative z-10 mx-auto max-w-6xl text-center">
         <ThemeLabel dark>{eyebrow}</ThemeLabel>
         <h1 className="mx-auto mt-5 max-w-4xl text-5xl font-black leading-[0.98] tracking-tight md:text-7xl">

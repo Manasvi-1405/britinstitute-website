@@ -551,14 +551,20 @@ export default function Navbar({ hasBanner }: { hasBanner: boolean }) {
         className="alma-nav"
         style={{
           top: navTop,
-          width: "100%",
-          position: "fixed",
-          zIndex: 50,
-          boxSizing: "border-box",
-          background: NAV_BG,
-          padding: "16px 0",
-          boxShadow: scrolled ? "0 4px 20px rgba(0,0,0,0.5)" : "none",
-          transition: "all 0.3s ease",
+  width: "100%",
+  position: "fixed",
+  zIndex: 50,
+  boxSizing: "border-box",
+  background: NAV_BG,
+  padding: "16px 0",
+
+  boxShadow: scrolled
+    ? "0 5px 24px rgba(29, 99, 165, 0.18)"
+    : "0 2px 12px rgba(29, 99, 165, 0.08)",
+
+  transition: "all 0.3s ease",
+
+  borderBottom: "1px solid rgba(29, 99, 165, 0.15)",
         }}
       >
         <div

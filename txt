@@ -1,0 +1,82 @@
+1. Project Overview & Tech Stack
+
+This project is the official web application for Brit Institute, a UK-based training institute specializing in Data Analytics, Data Science, and AI.
+
+Framework: Next.js 16 (App Router)
+ with React 19 & TypeScript.
+Styling: Tailwind CSS v4
+ with custom brand design tokens (gold #D4AF37, deep dark brand purple #24101F, orange #D95700, etc.).
+Animation & Visuals: Framer Motion
+ (for animated chatbot transitions and modal animations) and Three.js / React Three Fiber
+ (for 3D graphics).
+Communication & Cloud Services: AWS SES (@aws-sdk/client-sesv2) for transactional emails and leads notification.
+Tracking & Analytics: Google Tag Manager, Google Analytics 4, and Meta Pixel with client-side event deduplication.
+2. High-Level Architecture & Request Flow
+3. Detailed Breakdown of Key Modules
+
+
+A. Root Layout & Multi-Variant Routing (app/layout.tsx)
+Host & Subdomain Awareness: Using getRequestSiteConfig, the app can serve both the main site (britinstitute.uk) and a dedicated standalone chatbot (chat.britinstitute.uk or /career-chatbot).
+SEO & JSON-LD Schemas: Every page receives structured schemas (lib/seo.ts) such as EducationalOrganization, WebSite, Course, and FAQPage to enhance Google SERP visibility.
+Persistent Layout Overlays: Injects global floating elements on every page:
+TopBanner (announcement countdown bar with dismiss storage).
+Navbar (responsive navigation with course catalog fetch).
+GlobalUI (global click handler for conversion CTAs).
+CareerChatbotFloat (AI career advisor widget).
+WhatsAppFloat (direct link to UK admissions WhatsApp).
+StickyBottomBar (quick call/inquiry bar).
+
+
+B. Home Page Experience (app/page.tsx & app/HomePageClient.tsx)
+Query Parameter Triggers: If a visitor arrives via an ad link containing ?apply=true or ?form=1, OpenOfferModalOnMount fires a custom window event brit:open-offer-modal immediately to prompt the user.
+Main Section Composition: Rendered inside BritInspiredHome.tsx:
+Hero Section: Value proposition, UK job focus, trust metrics.
+Career Journey Strip: Visual 5-step roadmap from learning to placement.
+Logo Strip & Trust Badges: Employer logos and hiring partners.
+Product Cards & Courses: Sliced from coursesData (Data Analytics, Data Science, Agentic AI, Generative AI).
+Feature Suite: Skills, hands-on portfolio proof, career transition support.
+Reviews, Portfolios & FAQ Accordion: Interactive FAQ (FAQ.tsx) with schema markup.
+
+
+C. Global CTA Interceptor & Modal System (components/layout/GlobalUI.tsx)
+
+Rather than wiring an onClick handler on every individual button across the site:
+
+GlobalUI listens to all document clicks.
+If a clicked element is a CTA button/link containing phrases like "Apply Now", "Enroll", "Register", "Talk to Career Expert", or class .btn-gold, it intercepts the click and opens OfferModal.
+This provides consistent lead capture without code duplication.
+
+
+D. Dynamic Course Routing (app/courses/[slug]/page.tsx)
+SSG Pre-rendering: generateStaticParams pre-renders routes for data-analytics, data-science, ai-automation, and gen-ai.
+Hybrid Data Layer: Reads rich static course information from courseData.ts and falls back/enhances with live data via fetchCourseBySlug.
+Course Modules Included:
+Tool tech-stack badges (Excel, SQL, Power BI, Python, Pandas, etc.).
+Dedicated interactive curriculum views (DataAnalyticsCurriculum.tsx, AgenticAICurriculum.tsx, etc.).
+Brochure instant download tracking (BrochureDownloadButton.tsx).
+Embedded lead capture form (CourseLeadForm.tsx).
+
+
+E. AI Career Chatbot (CareerChatbotFloat.tsx & lib/careerChatbot.ts)
+Acts as a digital career counsellor for prospective students.
+Step-by-Step Question Flow: Tracks stages (S0 to S7) assessing experience level, current background, tool familiarity (SQL, Excel, Python), timeline, and target role.
+Calculation Engine: computeAssessmentResult analyzes the student's inputs, identifies skill gaps, calculates projected UK salaries, and recommends the best-fitting program.
+Lead Generation: Collects student contact information and pushes leads to the admissions CRM.
+
+
+F. Lead Capture & AWS SES Email Pipeline (app/api/course-registration/route.ts)
+
+When a user submits a registration or brochure form:
+
+Validation: Checks required fields (name, email, phone, course, purpose).
+CRM Forwarding: Posts the lead directly to the main API endpoint (api.britinstitute.uk/api/leads).
+AWS SES Notification: Calls sendCourseRegistrationEmail to send an HTML-formatted notification email via Amazon SES to the admissions team.
+Analytics: Client triggers trackLead pushing an event with a unique ID to Google Tag Manager and Meta Pixel (fbq).
+Summary of What Runs Where
+Feature	Location	Execution Environment
+Site Variant & SEO Setup	app/layout.tsx, lib/siteConfig.ts	Server (Node.js / Edge)
+Home Page Sections	BritInspiredHome.tsx	Client Component
+Course Details & Curricula	app/courses/[slug]/page.tsx	Server + SSG
+Global Click Interception	GlobalUI.tsx, OfferModal.tsx	Client (DOM events)
+Career Chatbot	CareerChatbotFloat.tsx, lib/careerChatbot.ts	Client + Framer Motion
+Lead Email & CRM Route	app/api/course-registration/route.ts	Server API Route (AWS SES)
