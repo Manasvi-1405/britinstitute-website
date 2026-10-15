@@ -259,7 +259,7 @@ function HeroSection() {
       className={`${openSans.className} relative min-h-[640px] overflow-hidden px-5 py-20 text-white md:min-h-[700px] md:px-8 lg:min-h-[735px] lg:px-12`}
     >
       <Image
-        src="/Dashboard hero.png"
+        src="/dashboard1.png"
         alt="Learner working on a laptop"
         fill
         priority

@@ -7,7 +7,7 @@ import Link from "next/link";
 const BRAND_CYAN = "#00E5FF"; // Free badge color
 const BRAND_BLUE = "#FFFFFF";
 const BRAND_GOLD = "#D4AF37";
-const NAV_BG = "#000000";
+const NAV_BG = "bg-transparent";
 const NAV_LINK = "#ffffff";
 const NAV_LINK_HOVER = "#d1d5db";
 const TOP_BANNER_HEIGHT = 40;
